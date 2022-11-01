@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+    <div class="mx-auto container row d-flex justify-content-around">
+        <div class="my-5 col-4">
+            <h4 class="mb-5">Nombre de donneurs uniques en fonction du montant (en €)</h4>
+            <canvas id="graph1"></canvas>
+        </div>
+
+        <div class="bar my-5">
+        </div>
+
+       <div class="my-5 col-4">
+        <h4 class="mb-5">Départements avec le plus de donneur uniques</h4>
+        <canvas id="graph2"></canvas>
+       </div>
+    </div>
+{% endblock %}

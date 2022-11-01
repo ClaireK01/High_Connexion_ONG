@@ -1,0 +1,1 @@
+{"base_url":"","routes":{"app_api_barchart":{"tokens":[["text","\/api_barchart"]],"defaults":[],"requirements":[],"hosttokens":[],"methods":[],"schemes":[]},"app_api_piechart":{"tokens":[["text","\/api_piechart"]],"defaults":[],"requirements":[],"hosttokens":[],"methods":[],"schemes":[]}},"prefix":"","host":"localhost","port":"","scheme":"http","locale":""}

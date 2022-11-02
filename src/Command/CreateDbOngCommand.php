@@ -52,7 +52,7 @@ class CreateDbOngCommand extends Command
               ");
 
 
-        $io->success('La base à été créé avec succès!');
+        $io->success('La base à été créée avec succès!');
         return Command::SUCCESS;
 
     }

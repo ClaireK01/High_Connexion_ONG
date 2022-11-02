@@ -25,6 +25,8 @@
     "dependencies": {
         "bootstrap": "^5.2.2",
         "chart.js": "^3.9.1",
+        "chartjs-plugin-custom-legend": "^1.0.2",
+        "chartjs-plugin-datalabels": "^2.1.0",
         "jquery": "^3.6.1"
     }
 }

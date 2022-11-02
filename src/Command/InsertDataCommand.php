@@ -11,7 +11,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
 #[AsCommand(
-    name: 'insert-data',
+    name: 'insert-data-ong',
     description: 'Add a short description for your command',
 )]
 class InsertDataCommand extends Command
@@ -73,7 +73,7 @@ class InsertDataCommand extends Command
 
         } catch (\PDOException $e) {
             try {
-                dump($e->getMessage());
+                dump("L'utilisateur est déjà présent dans la base de donnée. Mis à jour du montant.");
                 $preparedQuery = $dbh->prepare('UPDATE dons SET montant = (montant + :montant), 
                     last_donated_at = CASE WHEN last_donated_at < :date THEN :date2 ELSE last_donated_at END
                     WHERE telephone = :telephone;

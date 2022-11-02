@@ -53,7 +53,7 @@ class DashboardController extends AbstractController
         $dbc = mysqli_connect('localhost', 'root', "", "high_connexion");
         $datas = [];
         $departement = mysqli_query($dbc, '
-         SELECT SUM(montant), SUBSTRING(code_postal, 1, 2) FROM users INNER JOIN dons d on users.telephone = d.telephone group by SUBSTRING(code_postal, 1, 2) ORDER BY SUM(montant) DESC LIMIT 10;
+        SELECT COUNT(dons.telephone), SUBSTRING(code_postal, 1, 2) FROM dons INNER JOIN users u on u.telephone = dons.telephone GROUP BY SUBSTRING(code_postal, 1, 2) ORDER BY COUNT(dons.telephone) DESC;   
         ');
 
         foreach ($departement->fetch_all() as $row){

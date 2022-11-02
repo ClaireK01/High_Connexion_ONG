@@ -42,7 +42,7 @@ function showBarChart(datas){
         data: {
             labels: ['1€', '2€', '3€', '4€', '5€', '6€', '< 6€'],
             datasets: [{
-                label: 'Nombre de donneurs',
+                label: 'Nombre de donateurs',
                 data: datas,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
@@ -93,7 +93,7 @@ function showPieChart(datas){
         data: {
             labels: departements,
             datasets: [{
-                label: 'Les 10 départements avec le plus de donneurs',
+                label: 'Les 10 départements avec le plus de donateurs',
                 data: montants,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',

@@ -21,9 +21,9 @@ class DashboardController extends AbstractController
     }
 
     #[Route('/api_barchart', name: 'app_api_barchart',  options:['expose'=>true])]
-    public function dashboard_api() : JsonResponse {
+    public function api_barChart() : JsonResponse {
 
-        $error = null;
+
         $db = new \PDO('mysql:host=localhost;dbname=high_connexion', "root", "");
         $db->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         $db->setAttribute(\PDO::ATTR_EMULATE_PREPARES, false);

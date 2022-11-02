@@ -1,19 +1,20 @@
+//Chart JS
 import Chart from 'chart.js/auto';
 import {LegendBottomMargin} from "chartjs-plugin-custom-legend"
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+Chart.register(ChartDataLabels, LegendBottomMargin(50));
 
-
+//Mis en place du routing des controller
 import Routing from "fos-router";
 const routes = require('../public/js/fos_js_routes.json');
 Routing.setRoutingData(routes);
-
-Chart.register(ChartDataLabels, LegendBottomMargin(50));
 
 
 const ctx = document.querySelector('#graph1').getContext('2d');
 const ctx2 = document.querySelector('#graph2').getContext('2d');
 
 
+//Requète pour l'api donateurs en fonction montant
 $.ajax({
     url: Routing.generate('app_api_barchart'),
     success: function(response){
@@ -24,6 +25,7 @@ $.ajax({
     }
 })
 
+//Requête pour l'api donateurs en fonction département
 $.ajax({
     url: Routing.generate('app_api_piechart'),
     success: function(response){
@@ -40,7 +42,7 @@ function showBarChart(datas){
     const barChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['1€', '2€', '3€', '4€', '5€', '6€', '< 6€'],
+            labels: ['1€', '2€', '3€', '4€', '5€', '6€', '>6€'],
             datasets: [{
                 label: 'Nombre de donateurs',
                 data: datas,
@@ -80,7 +82,7 @@ function showBarChart(datas){
 }
 
 function showPieChart(datas){
-    // let montant = datas.filter((word) => word.montant_total);
+
     let montants = [];
     let departements = [];
     datas.forEach(data =>{
@@ -93,7 +95,7 @@ function showPieChart(datas){
         data: {
             labels: departements,
             datasets: [{
-                label: 'Les 10 départements avec le plus de donateurs',
+                label: 'Départements possèdant le plus de donateurs',
                 data: montants,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',

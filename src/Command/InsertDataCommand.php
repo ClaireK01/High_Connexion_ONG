@@ -57,6 +57,7 @@ class InsertDataCommand extends Command
 
     }
 
+    //Insertion table dons
     function insertDataDons($montant, $tel, $date):void
     {
 
@@ -65,6 +66,7 @@ class InsertDataCommand extends Command
         $dbh->setAttribute(\PDO::ATTR_EMULATE_PREPARES, false);
 
         try {
+            //Insertion des nouvelles données
             $preparedQuery = $dbh->prepare('INSERT INTO dons (telephone, montant, last_donated_at) VALUES (:telephone, :montant, :date)');
             $preparedQuery->bindParam(':date', $date);
             $preparedQuery->bindParam(':montant', $montant);
@@ -72,6 +74,7 @@ class InsertDataCommand extends Command
             $preparedQuery->execute();
 
         } catch (\PDOException $e) {
+            //Si telephone déja enregistré, on met le montant à jour et prend la date de dons la plus récente
             try {
                 dump("L'utilisateur est déjà présent dans la base de donnée. Mis à jour du montant.");
                 $preparedQuery = $dbh->prepare('UPDATE dons SET montant = (montant + :montant), 
@@ -90,6 +93,7 @@ class InsertDataCommand extends Command
         }
     }
 
+    //Insertion table users
     function insertDataCodePostal($code, $tel):void
     {
         $dbh = new \PDO('mysql:host=localhost;dbname=high_connexion', "root", "");

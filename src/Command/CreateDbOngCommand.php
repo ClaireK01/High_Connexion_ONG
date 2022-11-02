@@ -27,6 +27,7 @@ class CreateDbOngCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        // Création BDD + tables
 
         $io = new SymfonyStyle($input, $output);
 
